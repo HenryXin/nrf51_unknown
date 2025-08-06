@@ -1,0 +1,8 @@
+# nRF51 Unknown board configuration
+
+# Copyright (c) 2024 Waveshare
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_NRF51_UNKNOWN
+
+endif # BOARD_NRF51_UNKNOWN 

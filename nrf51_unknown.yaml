@@ -1,0 +1,16 @@
+identifier: nrf51_unknown
+name: Unknown nRF51 Board
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+ram: 32
+supported:
+  - ble
+  - gpio
+  - i2c
+testing:
+  ignore_tags:
+    - net
+vendor: waveshare 

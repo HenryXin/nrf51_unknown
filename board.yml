@@ -1,0 +1,6 @@
+board:
+  name: nrf51_unknown
+  full_name: Unknown nRF51 Board
+  vendor: waveshare
+  socs:
+  - name: nrf51822 
