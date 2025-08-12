@@ -5,4 +5,69 @@
 
 if BOARD_NRF51_UNKNOWN
 
+# Heap configuration for nRF51 (16KB SRAM total)
+config HEAP_MEM_POOL_SIZE
+	default 128
+
+# Enable minimal libc to avoid malloc issues
+choice LIBC_IMPLEMENTATION
+	default MINIMAL_LIBC
+endchoice
+
+# Enable console output
+config CONSOLE
+	default y
+
+config UART_CONSOLE
+	default y
+
+# Increase stack sizes for stability
+config MAIN_STACK_SIZE
+	default 512
+
+config IDLE_STACK_SIZE
+	default 256
+
+# Enable serial and GPIO
+config SERIAL
+	default y
+
+config GPIO
+	default y
+
+# Enable coredump for debugging
+config DEBUG_COREDUMP
+	default y
+
+choice DEBUG_COREDUMP_BACKEND
+	default DEBUG_COREDUMP_BACKEND_LOGGING
+endchoice
+
+# Optimize for limited memory
+config OPTIMIZATION_LEVEL
+	int
+	default 2
+
+# NRFX CLOCK Driver Configuration from .config
+# Disable two-stage start sequence for low-frequency clock
+config NRFX_CLOCK_LFXO_TWO_STAGE_ENABLED
+	default n
+
+# Enable low-frequency clock calibration
+config NRFX_CLOCK_LF_CAL_ENABLED
+	default y
+
+# Use RC oscillator as low-frequency source
+config NRFX_CLOCK_LF_SRC_RC
+	default y
+
+# Disable crystal oscillator (use RC oscillator instead)
+config NRFX_CLOCK_LF_SRC_XTAL
+	default n
+
+# Override the clock source choice to use RC instead of XTAL
+choice CLOCK_CONTROL_NRF_SOURCE
+	default CLOCK_CONTROL_NRF_K32SRC_RC
+endchoice
+
 endif # BOARD_NRF51_UNKNOWN 
